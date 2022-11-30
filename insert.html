@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title> Database Of Employee </title>
+
+    <script type="text/javascript" src="task3.js"></script>
+  
+ 
+  <head>
+
+  <body align="center">
+    
+<div>
+
+    <div class="main">
+      
+      <form name="data" action="" method="" >
+        <table align="center" id="data">
+          <tr><td>Enter your name </td><td>: <input type="text" name="ename" size="25"></td>
+             <td><input type="reset" value="Add" onclick="add()"></td><br/></tr>
+          <tr><td>Enter your ID  </td><td>: <input type="text" name="eid" size="25"></td>
+            <td>pws </td><td>: <input type="text" name="pws" size="25"></td><td></td>
+            <td><input type="reset" value="Delete" onclick="delete1()"></td><br /></tr>
+        </table>
+      </form></div>
+      
+      <hr>
+      <br />
+      <br /><br />
+      <div class="sub">
+        <form name="data1">
+          <table align="center" id="res" border="1" width="500" valign="top" >
+          
+            <tr><th>S.No</th><th>NAME</th><th>ID</th><th>pws</th></tr>  
+          
+          </table>
+        </form>
+      <br /><br /><br />
+      </div><!-- End of sub div-->
+      
+    </div><!-- End of main div--> 
+    
+    
+  </body>
+<script>
+  var temp=1;
+function add()
+{
+  var x=document.forms["data"]["ename"].value;
+  if(x==null || x=="")
+  {
+    alert("Enter your Name");
+    return false;
+  }
+  var y=document.forms["data"]["eid"].value;
+  
+  if(y==null || y=="")
+  {
+    alert("Enter your ID no");
+    return false;
+  }
+  var y=document.forms["data"]["pws"].value;
+  
+  if(y==null || y=="")
+  {
+    alert("Enter your ID no");
+    return false;
+  }
+
+
+  if(temp<10)
+  {
+         var x=document.getElementById('res').insertRow(temp);   
+         var sno=x.insertCell(0)   
+         var name=x.insertCell(1)
+         
+   var id=x.insertCell(2)   
+   var pws=x.insertCell(3) 
+   sno.innerHTML="<input type='checkbox' id='cb' value="+ temp + ">";
+         name.innerHTML=  document.forms["data"]["ename"].value;
+         id.innerHTML=  document.forms["data"]["eid"].value;
+         pws.innerHTML=  document.forms["data"]["pws"].value;
+
+
+  temp++;
+  }
+  
+  
+}
+
+function delete1()
+{
+  
+  for(var i=0; i<document.data1.cb.length; i++){
+  if(document.data1.cb[i].checked)
+    {
+      
+    document.getElementById('res').deleteRow(document.data1.cb[i].value);
+    }
+  }
+    
+} 
+
+</script>
+</html>
